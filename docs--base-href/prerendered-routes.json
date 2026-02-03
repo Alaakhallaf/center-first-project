@@ -1,0 +1,13 @@
+{
+  "routes": [
+    "/auth",
+    "/auth/login",
+    "/auth/register",
+    "/blank",
+    "/blank/about",
+    "/blank/cart",
+    "/blank/contact",
+    "/blank/home",
+    "/blank/services"
+  ]
+}
