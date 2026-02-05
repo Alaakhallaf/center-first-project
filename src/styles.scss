@@ -78,3 +78,9 @@ a:hover {
 .btn-main:hover {
   background-color: #11bd11;
 }
+// alaa added
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: transparent !important;
+  color: inherit !important;
+}
