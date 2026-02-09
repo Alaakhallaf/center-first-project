@@ -2,29 +2,88 @@
    <div class="container">
      <h1 class="h2 text-main">Register now</h1>
 
-    <form action="">
+    <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
         <div class="my-2">
             <label for="name">name</label>
-            <input type="text" class="form-control" id="name">
+            <input type="text" class="form-control" id="name" formControlName="name">
+
+            @if (registerForm.get('name')?.errors && (registerForm.get('name')?.touched||registerForm.get('name')?.dirty)) {
+                <div class="alert-danger alert w-50 ">
+                    @if (registerForm.get('name')?.getError('required')) {
+                        <p class="m-0">* Name Is Required</p>
+                    }
+                    @else if (registerForm.get('name')?.getError('minlength')) {
+                        <p class="m-0">* Name should be more than or equal 3 chars</p>
+                    }
+                    @else if (registerForm.get('name')?.getError('maxlength')) {
+                        <p class="m-0">* Name should be less than or equal 20 chars</p>
+                    }
+                    </div>
+            }
+
+            
         </div>
          <div class="my-2">
             <label for="email">email</label>
-            <input type="email" class="form-control" id="email">
+            <input type="email" class="form-control" id="email" formControlName="email">
+              @if (registerForm.get('email')?.errors &&(registerForm.get('email')?.touched||registerForm.get('email')?.dirty)) {
+                <div class="alert-danger alert w-50 ">
+                    @if (registerForm.get('email')?.getError('required')) {
+                        <p class="m-0">* email Is Required</p>
+                    }
+                    @else if (registerForm.get('email')?.getError('email')) {
+                        <p class="m-0">* email Is not valid</p>
+                    }
+                    </div>
+            }  
         </div>
          <div class="my-2">
             <label for="phone">phone</label>
-            <input type="tel" class="form-control" id="phone">
+            <input type="tel" class="form-control" id="phone"formControlName="phone">
+             @if (registerForm.get('phone')?.errors &&registerForm.get('phone')?.touched  &&(registerForm.get('phone')?.touched||registerForm.get('phone')?.dirty) ) {
+                <div class="alert-danger alert w-50 ">
+                    @if (registerForm.get('phone')?.getError('required')) {
+                        <p class="m-0">* phone Is Required</p>
+                    }
+                    @else if (registerForm.get('phone')?.getError('pattern')) {
+                        <p class="m-0">* Enter valid phone </p>
+                    }
+                    </div>
+            }
         </div>
          <div class="my-2">
             <label for="passowrd">passowrd</label>
-            <input type="password" class="form-control" id="passowrd">
+                        <input type="password" class="form-control" id="password"formControlName="password">
+            @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched )
+             { <div class="alert-danger alert w-50 ">
+                    @if (registerForm.get('password')?.getError('required')) {
+                        <p class="m-0">* password Is Required</p>
+                    }
+                    @else if (registerForm.get('password')?.getError('pattern')) {
+                        <p class="m-0">* password Is not valid</p>
+                    }
+                    </div>
+            }
+               
         </div>
          <div class="my-2">
             <label for="repassword">repassword</label>
-            <input type="password" class="form-control" id="repassword">
+            <input type="password" class="form-control" id="repassword" formControlName="rePassword">
+         @if (registerForm.getError("mismatch") && registerForm.get('rePassword')?.touched) {
+            <p class="alert alert-danger m-0 w-50">Incorrect password confirmation</p>
+          }
+         
         </div>
         
-        <button class="btn-main ms-auto d-block">register</button>
-    </form>
+        <button [disabled]="registerForm.invalid || isLoading"  type="submit" class="btn-main ms-auto d-block">register
+            @if (isLoading) {
+                <span><i class="fas fa-spin fa-spinner"></i></span>
+            }
+        </button>
+@if (msgError) {
+            <p class="alert alert-danger w-50 m-0 ">{{msgError}}</p>
+
+}    </form>
    </div>
-</section>
+</section>  
+
