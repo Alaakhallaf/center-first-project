@@ -38,9 +38,10 @@ export const routes: Routes = [
 
     ]
 },
-{path:'blank' ,component:BlankLayoutComponent
+{path:'' ,component:BlankLayoutComponent
     ,children:[
-
+{        path:'' ,component:HomeComponent
+},
 {        path:'home',component:HomeComponent
 }  ,
 {        path:'contact',component:ContactComponent
