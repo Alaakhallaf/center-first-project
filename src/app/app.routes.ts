@@ -22,6 +22,8 @@ import { SignoutComponent } from './components/signout/signout.component';
 import { LeaderWordComponent } from './components/leader-word/leader-word.component';
 import { CenterBirthComponent } from './components/center-birth/center-birth.component';
 import { CenterGoalsComponent } from './components/center-goals/center-goals.component';
+import { WishListComponent } from './components/wish-list/wish-list.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 export const routes: Routes = [
 
@@ -44,6 +46,8 @@ export const routes: Routes = [
 },
 {        path:'home',component:HomeComponent
 }  ,
+{        path:'wish-list',component:WishListComponent
+}  ,
 {        path:'contact',component:ContactComponent
 } ,
 {        path:'about',component:AboutComponent
@@ -52,7 +56,7 @@ export const routes: Routes = [
 {        path:'voluntering',component:VolunteringComponent
 } 
 ,
-{        path:'jobs',component:JobsComponent
+{        path:'profile',component:ProfileComponent
 } 
 ,
 {        path:'courses',component:CoursesComponent
@@ -65,13 +69,7 @@ export const routes: Routes = [
 {        path:'signout',component:SignoutComponent
 } 
 ,
-{        path:'leader-word',component:LeaderWordComponent
-} 
-,
-{        path:'center-birth',component:CenterBirthComponent
-} ,
-{        path:'center-goals',component:CenterGoalsComponent
-} 
+
   ]
 },
 {path:'**' ,component:NotfoundComponent}
