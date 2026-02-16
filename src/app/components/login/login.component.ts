@@ -29,7 +29,7 @@ export class LoginComponent {
  loginForm:FormGroup=this._formBuilder.group({
   email:[null,[Validators.required,Validators.email]],
   
-  password:[null,[Validators.required,Validators.pattern(/^\w{6,}$/)]],
+  password:[null,[Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/)]],
   
  
 })
@@ -53,20 +53,20 @@ export class LoginComponent {
     this._AuthServiceService.setloginForm(this.loginForm.value).subscribe({
       next:(res)=>{
         console.log(res)
-    if(res.message=='success'){
-      localStorage.setItem('userToken', res.token);
-      this._router.navigate(['/blank/home'])
-    }
+      if (res.token) {
+          localStorage.setItem('userToken', res.token);
+          // كمان ممكن تخزني الاسم لو حبيتي
+          localStorage.setItem('fullName', res.fullName);
+          this._router.navigate(['/home']);
+        }
           this.isLoading=false;
   
       },
   
-       error:(err:HttpErrorResponse)=>{
-        this.msgError = err.error.message
+        error: (err: HttpErrorResponse) => {
+        this.msgError = err.error.message;
         console.log(err);
-          this.isLoading=false;
-  
-        
+        this.isLoading = false;
       }
     })
     console.log(this.loginForm.value)

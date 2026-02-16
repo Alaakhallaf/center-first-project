@@ -25,17 +25,21 @@ isLoading:boolean=false;
 
 
 registerForm:FormGroup=this._formBuilder.group({
-name:[null,[Validators.required,Validators.minLength(3)]],
+firstName:[null,[Validators.required,Validators.minLength(3)]],
+lastName:[null,[Validators.required,Validators.minLength(3)]],
 email:[null,[Validators.required,Validators.email]],
 
-password:[null,[Validators.required,Validators.pattern(/^\w{6,}$/)]],
-
-rePassword:[null],
-
-phone:[null,[Validators.required,Validators.pattern(/^01[0125][0-9]{8}$/)]]
+password: [null, [Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/)]]
+,
 
 
-}, {Validators:this.confirmpassword})
+
+phoneNumber:[null,[Validators.required,Validators.pattern(/^01[0125][0-9]{8}$/)]]
+
+
+})
+// }, {Validators:this.confirmpassword})
+
 //   registerForm:FormGroup =new FormGroup({
 // name:new FormControl(null,[Validators.required,Validators.minLength(3)]) ,
 // email:new FormControl(null,[Validators.required,Validators.email]),
@@ -56,35 +60,36 @@ if (this.registerForm.valid){
   this._AuthServiceService.setRegisterForm(this.registerForm.value).subscribe({
     next:(res)=>{
       console.log(res)
-  if(res.message=='success'){
-    this._router.navigate(['/auth/login'])
-  }
+    if (res.token) {
+          // نمرر بيانات تسجيل الدخول للصفحة القادمة
+          this._router.navigate(['/auth/login'], { 
+            state: { email: res.email, password: this.registerForm.value.password } 
+          });
+        }
         this.isLoading=false;
 
     },
 
-     error:(err:HttpErrorResponse)=>{
-      this.msgError = err.error.message
-      console.log(err);
-        this.isLoading=false;
-
-      
-    }
+     error: (err: HttpErrorResponse) => {
+        this.msgError = err.error.message;
+        console.log(err);
+        this.isLoading = false;
+      }
   })
   console.log(this.registerForm.value)
 }
 }
 
 
- confirmpassword(g:AbstractControl ){
-  if(g.get('password')?.value === g.get('rePassword')?.value)
-{
-    return null
-  }
-  else{
-    return{ mismatch:true }
-  }
- }
+//  confirmpassword(g:AbstractControl ){
+//   if(g.get('password')?.value === g.get('rePassword')?.value)
+// {
+//     return null
+//   }
+//   else{
+//     return{ mismatch:true }
+//   }
+//  }
 
 
 
