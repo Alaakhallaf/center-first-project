@@ -29,7 +29,7 @@ export const routes: Routes = [
 
 
 
-{ path: '', redirectTo: 'blank/home', pathMatch: 'full' }
+{ path: '', redirectTo: 'home', pathMatch: 'full' }
 ,
 {path:'auth' ,component:AuthLayoutComponent,
     children:[
