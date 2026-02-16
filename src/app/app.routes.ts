@@ -22,12 +22,13 @@ import { SignoutComponent } from './components/signout/signout.component';
 import { LeaderWordComponent } from './components/leader-word/leader-word.component';
 import { CenterBirthComponent } from './components/center-birth/center-birth.component';
 import { CenterGoalsComponent } from './components/center-goals/center-goals.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
 
 
 
-{ path: '', redirectTo: 'blank/home', pathMatch: 'full' }
+{ path: '', redirectTo: 'auth/register', pathMatch: 'full' }
 ,
 {path:'auth' ,component:AuthLayoutComponent,
     children:[
@@ -38,7 +39,7 @@ export const routes: Routes = [
 
     ]
 },
-{path:'blank' ,component:BlankLayoutComponent
+{path:'blank' ,component:BlankLayoutComponent,canActivate:[authGuard]
     ,children:[
 
 {        path:'home',component:HomeComponent
