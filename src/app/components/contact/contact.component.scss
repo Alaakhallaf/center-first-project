@@ -1,0 +1,113 @@
+/* الخلفية بيضا */
+.contact-page {
+  background: #ffffff;
+  min-height: calc(100vh - 80px);
+}
+
+/* الكارت أغمق شوية من الخلفية */
+.contact-card {
+  max-width: 980px;
+  background: #f5f7f6;   /* أغمق سنة من الأبيض */
+}
+
+/* inputs */
+.input-like {
+  border-radius: 10px;
+  padding: 14px 14px;
+  border: 1px solid #d9d9d9;
+  box-shadow: none !important;
+  background: #fff;
+}
+
+.input-like:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 0.2rem rgba(53, 114, 165, 0.15);
+  outline: none;
+}
+
+/* email icon */
+.email-wrap {
+  position: relative;
+}
+
+.email-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  font-weight: 600;
+  user-select: none;
+}
+
+/* Issue boxes */
+.issue-box {
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  padding: 18px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  width: 100%;
+  background: #ffffff;
+}
+
+.issue-box input {
+  display: none;
+}
+
+.radio-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #bbb;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.issue-text {
+  font-size: 18px;
+  color: #444;
+}
+
+/* selected */
+.issue-box:has(input:checked) {
+  border-color: var(--main-color);
+  background: #eef3f9; /* لمسة خفيفة من لون المين */
+}
+
+.issue-box:has(input:checked) .radio-dot {
+  border-color: var(--main-color);
+}
+
+.issue-box:has(input:checked) .radio-dot::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--main-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Submit button */
+.submit-btn {
+  background: var(--main-color);
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 26px;
+  transition: 0.2s;
+}
+
+.submit-btn:hover {
+  background: #11bd11; /* نفس الهوفر بتاع btn-main عندك */
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -1,0 +1,171 @@
+// section slider
+.carousel-img {
+    width: 100% !important;
+    
+    aspect-ratio: 14 / 5; 
+    object-fit: fill; 
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .carousel-img {
+        aspect-ratio: 4 / 3; 
+    }
+}
+
+
+
+// section manager
+.manager-thumb {
+    width: 60px;    
+    height: 80px;
+    object-fit: cover; 
+    border: 2px solid #007bff; 
+}
+
+.manager-info h5 {
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.director-word {
+  border-bottom: 1px solid #ffffff;
+}
+
+.img-card img {
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  object-fit: fill;
+}
+
+.card {
+  border-radius: 15px;
+  background-color: #eee ;
+}
+
+.text-primary {
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .director-word {
+    text-align: center !important;
+  }
+}
+
+
+// section service
+.text-navy {
+    color: #003366;
+}
+
+.title-line {
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background-color: #003366; 
+    border-radius: 2px;
+}
+.custom-service-card {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    transition: transform 0.3s ease;
+}
+
+.custom-service-card:hover {
+    transform: scale(1.03); 
+}
+
+.custom-service-card img {
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-title {
+    color: #003366;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+
+// section core priciples
+.principles-section {
+  background-color: #ffffff;
+}
+
+.center-logo {
+  max-width: 150px;
+  height: auto;
+}
+
+.text-navy {
+  color: #003366;
+}
+
+.principle-card {
+  background: #fdfdfd;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0 !important;
+}
+
+.principle-card:hover {
+  transform: translateY(-10px);
+}
+
+.mission-highlight {
+background: linear-gradient(135deg, #003366 0%, #00509d 100%) !important;
+    color: white !important;
+}
+.mission-highlight p {
+    color: #e0e0e0 !important;
+}
+.icon-circle {
+  width: 65px;
+  height: 65px;
+  background: #eef4ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: #003366;
+}
+
+
+.icon-circle i {
+  font-size: 1.6rem;
+}
+.principle-card p, .principle-card li {
+    font-size: 0.95rem;
+    line-height: 1.8; 
+    color: #6c757d;
+}
+.values-list {
+    list-style: none;
+    padding: 0;
+    text-align: left; 
+    display: inline-block; 
+}
+.values-list li {
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.values-list li i {
+    color: #003366; 
+    font-size: 1rem;
+}
