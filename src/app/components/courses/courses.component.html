@@ -1,1 +1,24 @@
-<p>courses works!</p>
+<section>
+  <h2>courses</h2>
+  <div class="container">
+    <div class="row">
+    @for (course of trainingAndAdvisingCourses.slice(0,13); track course.id) {
+         <div class="col-md-4 p-3">
+  <div class="product p-3 shadow-lg h-100 d-flex flex-column justify-content-between border rounded-3">
+    <h3 class="h5">{{course.name}}</h3>
+<p class="text-muted">{{course.startDate | date:'MMMM d, y'}}</p>
+    <div class="d-flex justify-content-between mb-2">
+      <span>Duration: {{course.duration}} d</span>
+      <span>{{course.price}} EGP</span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <button class="btn-main">Enroll Now</button>
+      <span class="cursor-pointer text-main fs-4"><i class="fa-solid fa-heart-circle-plus"></i></span>
+    </div>
+  </div>
+</div>
+
+    }
+    </div>
+  </div>    
+</section>
