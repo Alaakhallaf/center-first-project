@@ -33,8 +33,8 @@ private readonly  _WishlistService=inject(WishListService)
 
     })
   }
-addToWishlist(courseId:string):void{
- this._WishlistService.addToWishlist(courseId ).subscribe({
+addToWishlist(id:any):void{
+ this._WishlistService.addToWishlist(id).subscribe({
   next:(res)=>{
     console.log(res);     
   },
