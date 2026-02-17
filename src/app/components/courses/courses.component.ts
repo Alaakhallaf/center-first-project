@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CoursesService } from '../../core/services/courses.service';
+import { WishListService } from '../../core/services/wishlist.service';
 
 @Component({
   selector: 'app-courses',
@@ -11,6 +12,8 @@ import { CoursesService } from '../../core/services/courses.service';
 export class CoursesComponent implements OnInit {
 
    private readonly _CoursesServiceh=inject(CoursesService)
+private readonly  _WishlistService=inject(WishListService)
+
 
    
   ngOnInit(): void {
@@ -24,6 +27,16 @@ export class CoursesComponent implements OnInit {
 
     })
   }
-
+addToWishlist(courseId:string):void{
+ this._WishlistService.addToWishlist(courseId ).subscribe({
+  next:(res)=>{
+    console.log(res);     
+  },
+  error:(err)=>{
+    console.log(err);
+    
+  }
+ })
+}
 
 }

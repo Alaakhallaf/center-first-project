@@ -12,7 +12,7 @@ export class WishListService {
 private readonly _HttpClient=inject(HttpClient)
 addToWishlist(id:string):Observable<any>{
  return this._HttpClient.post(`${environment.baseUrl}/api/Wishlist`,{
-"productId":id
+"courseId":id
   },{
     headers:this.myHeaders
   })
