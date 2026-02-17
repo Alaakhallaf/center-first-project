@@ -66,7 +66,7 @@ export const routes: Routes = [
 {        path:'workshops',component:WorkshopsComponent
 } 
 ,
-{        path:'signout',component:SignoutComponent
+{        path:'signout',component:SignoutComponent 
 } 
 ,
 
